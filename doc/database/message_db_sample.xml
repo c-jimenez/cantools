@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<message_db version="1.0">
+    <signals>
+        <signal id="button_pushed" value="val0" converter="" unit="" />
+        <signal id="speed" value="val1" converter="ms_to_kmh" unit="km/h" />
+        <signal id="state" value="val3" converter="enum_state" unit="" />
+    </signals>
+    
+    <converters>
+        <converter id="ms_to_kmh" type="function_converter" comment="Convert from m/s to km/h">
+            <function f="in_val * 3600 / 1000" />
+        </converter>
+        <converter id="enum_state" type="enum_converter">
+            <enum id="0" value="Idle" />
+            <enum id="1" value="Starting" />
+            <enum id="2" value="Running" />
+            <enum id="3" value="Paused" />
+            <enum id="4" value="Stopping" />
+            <enum id="5" value="Error" />
+        </converter>
+    </converters>
+    
+    <messages>
+        <message id="0x456" name="message 1" extended="false">
+            <values>
+                <value id="val0" type="bool" byte_position="2" bit_position="5" />
+                <value id="val1" type="uint" byte_position="0" bit_position="0" size_in_bits="16" />
+                <value id="val3" type="int" byte_position="2" bit_position="0" size_in_bits="5" />
+            </values>
+        </message>
+        <message id="0x123" name="message 2" extended="true">
+            <values>
+                <value id="val4" type="float" byte_position="4" bit_position="0" />
+            </values>
+        </message>
+        <message id="0x789" name="message 3" extended="true">
+            <values>
+                <value id="val5" type="double" byte_position="0" bit_position="0" />
+            </values>
+        </message>
+    </messages>
+    
+</message_db>

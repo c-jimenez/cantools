@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="VCI SDK Libraries (x86)"
+	OutputDirectory="$(SolutionDir)\bin\x32\$(ConfigurationName)"
+	IntermediateDirectory="..\obj\x32\$(ConfigurationName)"
+	>
+	<Tool
+		Name="VCBscMakeTool"
+		OutputFile="$(IntDir)/$(ProjectName).bsc"
+	/>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(VciSdkInc)&quot;;&quot;$(VciSdkInc)\rtl&quot;"
+		PreprocessorDefinitions="WIN32"
+		ExceptionHandling="0"
+		StructMemberAlignment="3"
+		BufferSecurityCheck="false"
+		RuntimeTypeInfo="false"
+		AssemblerListingLocation="$(IntDir)\"
+		ProgramDataBaseFileName="$(OutDir)\$(TargetName).pdb"
+		BrowseInformationFile="$(IntDir)\"
+		WarningLevel="4"
+		WarnAsError="true"
+		CompileAs="0"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="vciapi.lib"
+		AdditionalLibraryDirectories="&quot;$(VciSdkLib)\x32\release&quot;"
+		TargetMachine="1"
+	/>
+	<Tool
+		Name="VCResourceCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(VciSdkInc)&quot;"
+	/>
+	<UserMacro
+		Name="VciSdkInc"
+		Value="$(VciSDKDir)\inc"
+	/>
+	<UserMacro
+		Name="VciSdkLib"
+		Value="$(VciSDKDir)\lib"
+	/>
+</VisualStudioPropertySheet>

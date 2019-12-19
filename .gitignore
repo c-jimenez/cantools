@@ -1,0 +1,13 @@
+**/.vs
+**/obj
+**/lib
+**/bin
+*.bin
+*.obj
+**/x64
+**/Debug
+**/Release
+.vscode/.cortex-debug.peripherals.state.json
+.vscode/.cortex-debug.registers.state.json
+.vscode/ipch
+*.user

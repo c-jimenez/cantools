@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\3rdparty\tinyxml2\tinyxml2.vcxproj">
+      <Project>{2318103a-cdc1-4da1-8b26-12a4b8de9073}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\adapter\adapter.vcxproj">
+      <Project>{c9cb36a8-4c65-420d-83d6-49308db92fbe}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\math\math.vcxproj">
+      <Project>{240675af-c71a-4c50-b86b-2e6671faa36a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\osal\osal.vcxproj">
+      <Project>{a26b8b96-4a1f-4a42-8fa9-37347b30bf6f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\plugin\plugin.vcxproj">
+      <Project>{9003a709-5e1e-4afd-8da3-52f9fd40162f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\utils\utils.vcxproj">
+      <Project>{58eacc0e-cb7d-4e5d-98ba-5a916dab9081}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\libs\pipeline\CanPipelineSuspender.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\CanPipeline.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\BooleanCanMsgValue.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\CanMsgDecoder.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\CanMsgDesc.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\CanMsgSignal.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\CanMsgValueBase.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\EnumCanMsgValueConverter.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\FloatCanMsgValue.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\FunctionCanMsgValueConverter.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\IntegerCanMsgValue.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\XmlFileCanMsgDatabase.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\filter\BlackListCanMsgFilter.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\filter\CanFlagsMsgFilter.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\filter\IdMaskCanMsgFilter.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\filter\WhiteListCanMsgFilter.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\output\CanMsgForwarder.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\output\CanMsgStreamLogger.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\output\DecodedCanMsgStreamLogger.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\libs\pipeline\CanPipelineStageBase.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\CanPipelineSuspender.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\CanPipeline.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\BooleanCanMsgValue.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\CanMsgDecoder.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\CanMsgDesc.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\CanMsgSignal.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\CanMsgValueBase.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\CanMsgValueConverterBase.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\EnumCanMsgValueConverter.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\FloatCanMsgValue.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\FunctionCanMsgValueConverter.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\ICanMsgDatabase.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\ICanMsgValue.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\ICanMsgValueConverter.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\InputCanMsgValueConverter.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\IntegerCanMsgValue.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\XmlFileCanMsgDatabase.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\filter\BlackListCanMsgFilter.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\filter\CanFlagsMsgFilter.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\filter\CanMsgIdRange.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\filter\IdMaskCanMsgFilter.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\filter\WhiteListCanMsgFilter.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\ICanPipelineStage.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\output\CanMsgForwarder.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\output\CanMsgStreamLogger.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\output\DecodedCanMsgStreamLogger.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{BB5DFCA4-0189-4ED0-B37D-840C2E70DFD9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>pipeline</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>pipeline</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>../../../src/libs/utils;../../../src/libs/osal;../../../src/libs/osal/windows;../../../src/libs/adapter;../../../src/libs/math;../../../src/libs/pipeline;../../../src/libs/pipeline/filter;../../../src/libs/pipeline/decoder;../../../src/libs/pipeline/output;../../../src/libs/plugin;../../../3rdparty/tinyxml2-7.1.0</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>../../../src/libs/utils;../../../src/libs/osal;../../../src/libs/osal/windows;../../../src/libs/adapter;../../../src/libs/pipeline;../../../src/libs/pipeline/filter;../../../src/libs/pipeline/decoder;../../../src/libs/pipeline/output;../../../src/libs/plugin;../../../3rdparty/tinyxml2-7.1.0</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
