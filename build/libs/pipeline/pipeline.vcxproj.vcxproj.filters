@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="decoder">
+      <UniqueIdentifier>{32ec8d5b-665d-4783-bd07-5a9d51664d2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="filter">
+      <UniqueIdentifier>{affacd0b-fdee-46c3-b7dd-97d2a7f75a16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="output">
+      <UniqueIdentifier>{9565cf4e-9eea-4e20-b6c6-aef06b56b516}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\BooleanCanMsgValue.cpp">
+      <Filter>decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\CanMsgDesc.cpp">
+      <Filter>decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\CanMsgSignal.cpp">
+      <Filter>decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\CanMsgValueBase.cpp">
+      <Filter>decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\EnumCanMsgValueConverter.cpp">
+      <Filter>decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\FloatCanMsgValue.cpp">
+      <Filter>decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\FunctionCanMsgValueConverter.cpp">
+      <Filter>decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\IntegerCanMsgValue.cpp">
+      <Filter>decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\filter\BlackListCanMsgFilter.cpp">
+      <Filter>filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\filter\CanFlagsMsgFilter.cpp">
+      <Filter>filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\filter\IdMaskCanMsgFilter.cpp">
+      <Filter>filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\filter\WhiteListCanMsgFilter.cpp">
+      <Filter>filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\CanPipeline.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\CanPipelineSuspender.cpp" />
+    <ClCompile Include="..\..\..\src\libs\pipeline\output\CanMsgForwarder.cpp">
+      <Filter>output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\output\CanMsgStreamLogger.cpp">
+      <Filter>output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\CanMsgDecoder.cpp">
+      <Filter>decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\decoder\XmlFileCanMsgDatabase.cpp">
+      <Filter>decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\libs\pipeline\output\DecodedCanMsgStreamLogger.cpp">
+      <Filter>output</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\BooleanCanMsgValue.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\CanMsgDesc.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\CanMsgSignal.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\CanMsgValueBase.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\EnumCanMsgValueConverter.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\FloatCanMsgValue.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\FunctionCanMsgValueConverter.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\ICanMsgValue.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\ICanMsgValueConverter.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\InputCanMsgValueConverter.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\IntegerCanMsgValue.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\filter\BlackListCanMsgFilter.h">
+      <Filter>filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\filter\CanFlagsMsgFilter.h">
+      <Filter>filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\filter\CanMsgIdRange.h">
+      <Filter>filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\filter\IdMaskCanMsgFilter.h">
+      <Filter>filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\filter\WhiteListCanMsgFilter.h">
+      <Filter>filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\CanPipeline.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\ICanPipelineStage.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\CanPipelineSuspender.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\CanPipelineStageBase.h" />
+    <ClInclude Include="..\..\..\src\libs\pipeline\output\CanMsgForwarder.h">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\output\CanMsgStreamLogger.h">
+      <Filter>output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\CanMsgValueConverterBase.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\CanMsgDecoder.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\ICanMsgDatabase.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\decoder\XmlFileCanMsgDatabase.h">
+      <Filter>decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\libs\pipeline\output\DecodedCanMsgStreamLogger.h">
+      <Filter>output</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

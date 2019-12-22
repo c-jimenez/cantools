@@ -1,0 +1,61 @@
+{
+    "configurations": [
+        {
+            "name": "Windows",
+            "includePath": [
+                "${workspaceFolder}/src",
+
+                "${workspaceFolder}/src/apps",
+                "${workspaceFolder}/src/apps/can_adapter",
+                "${workspaceFolder}/src/apps/can_bridge",
+                "${workspaceFolder}/src/apps/can_dump",
+                "${workspaceFolder}/src/apps/can_sdo",
+                "${workspaceFolder}/src/apps/can_send",
+                "${workspaceFolder}/src/apps/can_server",
+
+                "${workspaceFolder}/src/dynlibs",
+                "${workspaceFolder}/src/dynlibs/",
+                "${workspaceFolder}/src/dynlibs/adapters",
+                "${workspaceFolder}/src/dynlibs/adapters/ixxat_adapter",
+                "${workspaceFolder}/src/dynlibs/adapters/loopback_adapter",
+                "${workspaceFolder}/src/dynlibs/adapters/tcp_adapter",
+                "${workspaceFolder}/src/dynlibs/maths",
+                "${workspaceFolder}/src/dynlibs/maths/sample_math",
+                
+                "${workspaceFolder}/src/libs",
+                "${workspaceFolder}/src/libs/adapter",
+                "${workspaceFolder}/src/libs/decoder",
+                "${workspaceFolder}/src/libs/filter",
+                "${workspaceFolder}/src/libs/math",
+                "${workspaceFolder}/src/libs/osal",
+                "${workspaceFolder}/src/libs/osal/windows",
+                "${workspaceFolder}/src/libs/plugin",
+                "${workspaceFolder}/src/libs/util",
+
+                "${workspaceFolder}/3rdparty/",
+                "${workspaceFolder}/3rdparty/ixxat/sdk/vci/inc",
+                "${workspaceFolder}/3rdparty/tinyxml1-7.1.0",
+
+                "C:\\mingw64\\include",
+                "C:\\mingw64\\lib\\gcc\\x86_64-w64-mingw32\\7.3.0\\include",
+                "C:\\mingw64\\lib\\gcc\\x86_64-w64-mingw32\\7.3.0\\include\\c++"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe",
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="UserMacros">
+    <VciSdkInc>$(VciSDKDir)\inc</VciSdkInc>
+    <VciSdkLib>$(VciSdkDir)\lib</VciSdkLib>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_PropertySheetDisplayName>VCI SDK Libraries</_PropertySheetDisplayName>
+    <IncludePath>$(VciSdkInc);$(VciSdkInc)\rtl;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Platform)'=='Win32'">$(VciSdkLib)\x32\release;$(LibraryPath)</LibraryPath>
+    <LibraryPath Condition="'$(Platform)'=='x64'">$(VciSdkLib)\x64\release;$(LibraryPath)</LibraryPath>
+    <IntDir Condition="'$(Platform)'=='Win32'">..\obj\x32\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Platform)'=='Win32'">$(SolutionDir)\bin\x32\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Platform)'=='x64'">..\obj\x64\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Platform)'=='x64'">$(SolutionDir)\bin\x64\$(Configuration)\</OutDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StructMemberAlignment Condition="'$(Platform)'=='Win32'">4Bytes</StructMemberAlignment>
+      <StructMemberAlignment Condition="'$(Platform)'=='x64'">8Bytes</StructMemberAlignment>
+    </ClCompile>
+    <ClCompile Condition="'$(Platform)|$(Configuration)'=='Win32|Debug'">
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <ClCompile Condition="'$(Platform)|$(Configuration)'=='Win32|Release'">
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>MaxSpeed</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <ClCompile Condition="'$(Platform)|$(Configuration)'=='x64|Debug'">
+      <PreprocessorDefinitions>WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <ClCompile Condition="'$(Platform)|$(Configuration)'=='x64|Release'">
+      <PreprocessorDefinitions>WIN64;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>MaxSpeed</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(VciSdkInc)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)'=='Debug'">_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)'=='Release'">NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions Condition="'$(Platform)'=='Win32'">_M_IX86</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Platform)'=='x64'">_M_AMD64</PreprocessorDefinitions>
+      <GenerateDebugInformation Condition="'$(Configuration)'=='Debug'">true</GenerateDebugInformation>
+      <GenerateDebugInformation Condition="'$(Configuration)'=='Release'">false</GenerateDebugInformation>
+      <TreatWarningsAsErrors Condition="'$(Configuration)'=='Debug'">false</TreatWarningsAsErrors>
+      <TreatWarningsAsErrors Condition="'$(Configuration)'=='Release'">true</TreatWarningsAsErrors>
+    </MASM>
+    <Link>
+      <AdditionalDependencies>vciapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation Condition="'$(Configuration)'=='Debug'">true</GenerateDebugInformation>
+      <GenerateDebugInformation Condition="'$(Configuration)'=='Release'">false</GenerateDebugInformation>
+    </Link>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="VciSdkInc">
+      <Value>$(VciSdkInc)</Value>
+    </BuildMacro>
+    <BuildMacro Include="VciSdkLib">
+      <Value>$(VciSdkLib)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
