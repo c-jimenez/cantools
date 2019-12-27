@@ -13,10 +13,7 @@
                 "all+",
                 "TARGET=mingw-windows"
             ],
-            "group":{
-                "kind": "build",
-                "isDefault": true
-            },
+            "group":"build",
             "problemMatcher": {
                 "owner": "cpp",
                 "fileLocation": [
@@ -56,22 +53,11 @@
                 "all+",
                 "TARGET=gcc-linux"
             ],
-            "group": "build",
-            "problemMatcher": {
-                "owner": "cpp",
-                "fileLocation": [
-                    "relative",
-                    "${workspaceFolder}"
-                ],
-                "pattern": {
-                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-                    "file": 1,
-                    "line": 2,
-                    "column": 3,
-                    "severity": 4,
-                    "message": 5
-                }
-            }
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher":"$gcc"
         },
         {
             "label": "clean Linux",

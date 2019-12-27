@@ -45,6 +45,7 @@ BUILD_OUTPUT_CMD=-o
 
 # Link output command
 LINK_OUTPUT_CMD=-o
+DYNLINK_OUTPUT_CMD=-shared -o
 
 # Compiler output file extensions
 COMP_LIB_EXTENSION=.a

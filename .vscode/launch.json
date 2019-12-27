@@ -5,12 +5,34 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python build",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/build.py",
+            "console": "integratedTerminal",
+            "args": [
+                "-t",
+                "gcc-linux",
+                "-p",
+                "'*'",
+                "-c",
+                "all+",
+                "-j",
+                "4"
+            ]
+        },
+        {
             "name": "Gdb Linux",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/apps/can_dump/bin/gcc-linux/can_dump.elf",
-            "args": [],
-            "stopAtEntry": false,
+            "args": [
+                "--adapter",
+                "udp_adapter",
+                "--bitrate",
+                "125"
+            ],
+            "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
@@ -30,9 +52,12 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/apps/can_dump/bin/mingw-windows/can_dump.exe",
             "args": [
-                "--adapter", "tcp_adapter",
-                "--options", "port=1234",
-                "--bitrate", "125"
+                "--adapter",
+                "tcp_adapter",
+                "--options",
+                "port=1234",
+                "--bitrate",
+                "125"
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",

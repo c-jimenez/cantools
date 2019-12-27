@@ -62,5 +62,6 @@
         "thread": "cpp",
         "stm32l4xx_hal.h": "c",
         "stm32l4xx_hal_conf.h": "c"
-    }
+    },
+    "python.pythonPath": "/bin/python"
 }

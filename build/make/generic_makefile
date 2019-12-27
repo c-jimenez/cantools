@@ -99,6 +99,10 @@ else
 endif
 endif
 
+# Absolute paths
+BIN_DIR_ABS := $(abspath $(BIN_DIR))
+OBJ_DIR_ABS := $(abspath $(OBJ_DIR))
+
 # Target specific definitions
 include $(ROOT_DIR)/build/make/targets/$(TARGET).target
 
