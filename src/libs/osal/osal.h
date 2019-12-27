@@ -21,7 +21,9 @@ along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 #define OSAL_H
 
 #ifdef __cplusplus
+
 #include <cstdint>
+#include <ctime>
 
 extern "C"
 {
@@ -29,6 +31,7 @@ extern "C"
 #else // __cplusplus
 
 #include <stdint.h>
+#include <time.h>
 
 #endif // __cplusplus
 
@@ -40,6 +43,8 @@ bool OSAL_Init();
 /** \brief Get the current time in timestamp format (see CanData.h) */
 void OSAL_GetTimestamp(int64_t* timestamp_sec, uint32_t* timestamp_nsec);
 
+/** \brief Converts a UNIX timestamp to a broken down time structure */
+void OSAL_LocalTime(const uint64_t unix_timestamp, struct tm* tm);
 
 #ifdef __cplusplus
 }
