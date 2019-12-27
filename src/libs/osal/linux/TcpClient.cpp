@@ -106,7 +106,7 @@ bool TcpClient::isConnected()
         FD_SET(m_socket, &fds);
         timeval tv_timeout = { 0 };
 
-        int res = select(static_cast<int>(m_socket), &fds, nullptr, nullptr, &tv_timeout);
+        int res = select(static_cast<int>(m_socket) + 1, &fds, nullptr, nullptr, &tv_timeout);
         if (res == 0)
         {
             ret = true;
@@ -160,7 +160,7 @@ bool TcpClient::recv(void* data, const size_t size, size_t& received, const uint
             tv_timeout.tv_sec = timeout / 1000u;
             tv_timeout.tv_usec = (timeout - (tv_timeout.tv_sec * 1000u)) * 1000u;
 
-            int res = select(static_cast<int>(m_socket), &fds, nullptr, nullptr, &tv_timeout);
+            int res = select(static_cast<int>(m_socket) + 1, &fds, nullptr, nullptr, &tv_timeout);
             ret = (res > 0);
             if (ret)
             {
@@ -187,17 +187,22 @@ bool TcpClient::waitReadReady(const std::list<TcpClient*>& clients, std::vector<
 
     if ((clients.size() > 0) && (clients.size() <= FD_SETSIZE))
     {
+        int fd_max = 0;
         fd_set fds = { 0 };
         for (auto iter = clients.begin(); iter != clients.end(); ++iter)
         {
             TcpClient* client = *iter;
             FD_SET(client->m_socket, &fds);
+            if (client->m_socket > fd_max)
+            {
+                fd_max = client->m_socket;
+            }
         }
         timeval tv_timeout;
         tv_timeout.tv_sec = timeout / 1000u;
         tv_timeout.tv_usec = (timeout - (tv_timeout.tv_sec * 1000u)) * 1000u;
         
-        int res = select(static_cast<int>(clients.size()), &fds, nullptr, nullptr, &tv_timeout);
+        int res = select(fd_max + 1, &fds, nullptr, nullptr, &tv_timeout);
         ret = (res > 0);
         if (ret)
         {

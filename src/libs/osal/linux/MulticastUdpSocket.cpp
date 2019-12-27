@@ -47,7 +47,7 @@ bool MulticastUdpSocket::open(const std::string& ip_address, const uint16_t port
     {
         // Create the socket
         m_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-        if (m_socket < 0)
+        if (m_socket >= 0)
         {
             // Allow reuse of IP address
             int reuse = 1;
@@ -143,7 +143,7 @@ bool MulticastUdpSocket::recv(void* data, const size_t size, size_t& received, c
                 tv_timeout.tv_usec = (timeout - (tv_timeout.tv_sec * 1000u)) * 1000u;
             }
 
-            int res = select(static_cast<int>(m_socket), &fds, nullptr, nullptr, ptimeout);
+            int res = select(static_cast<int>(m_socket) + 1, &fds, nullptr, nullptr, ptimeout);
             ret = (res > 0);
             if (ret)
             {
