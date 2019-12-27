@@ -26,6 +26,7 @@ along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 #include <sstream>
 #include <thread>
 #include <chrono>
+#include <cstring>
 using namespace std;
 
 /** \brief Constructor */

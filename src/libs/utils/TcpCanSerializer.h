@@ -24,6 +24,7 @@ along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 #include "NoCopy.h"
 
 #include <cstdint>
+#include <cstddef>
 
 class TcpClient;
 

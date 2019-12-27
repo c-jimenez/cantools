@@ -47,10 +47,10 @@ class PluginLoader : public INoCopy
         bool load(const std::vector<std::string>& search_paths, std::vector<IPlugin*>& plugins);
 
         /** \brief Load plugins from a specified path */
-        bool load(const std::string& search_path, std::vector<IPlugin*>& plugins, std::function<bool(IPlugin*)> filter_func);
+        bool load(const std::string& search_path, std::vector<IPlugin*>& plugins, const std::function<bool(IPlugin*)>& filter_func);
 
         /** \brief Load plugins from specified paths */
-        bool load(const std::vector<std::string>& search_paths, std::vector<IPlugin*>& plugins, std::function<bool(IPlugin*)> filter_func);
+        bool load(const std::vector<std::string>& search_paths, std::vector<IPlugin*>& plugins, const std::function<bool(IPlugin*)>& filter_func);
 
 
     private:

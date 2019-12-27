@@ -23,6 +23,7 @@ along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 #include "ICanControllerListener.h"
 
 #include <cstdio>
+#include <cstring>
 
 #include <iostream>
 #include <thread>

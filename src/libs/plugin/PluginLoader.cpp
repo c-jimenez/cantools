@@ -47,7 +47,7 @@ bool PluginLoader::load(const std::vector<std::string>& search_paths, std::vecto
 }
 
 /** \brief Load plugins from a specified path */
-bool PluginLoader::load(const std::string& search_path, std::vector<IPlugin*>& plugins, std::function<bool(IPlugin*)> filter_func)
+bool PluginLoader::load(const std::string& search_path, std::vector<IPlugin*>& plugins, const std::function<bool(IPlugin*)>& filter_func)
 {
     vector<string> search_paths;
     search_paths.push_back(search_path);
@@ -55,7 +55,7 @@ bool PluginLoader::load(const std::string& search_path, std::vector<IPlugin*>& p
 }
 
 /** \brief Load plugins from specified paths */
-bool PluginLoader::load(const std::vector<std::string>& search_paths, std::vector<IPlugin*>& plugins, std::function<bool(IPlugin*)> filter_func)
+bool PluginLoader::load(const std::vector<std::string>& search_paths, std::vector<IPlugin*>& plugins, const std::function<bool(IPlugin*)>& filter_func)
 {
     bool ret = true;
 

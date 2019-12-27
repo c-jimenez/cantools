@@ -27,6 +27,7 @@ along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <mutex>
 #include <thread>
+#include <functional>
 
 /** \brief Client connected to the CAN server */
 class CanClient : public INoCopy

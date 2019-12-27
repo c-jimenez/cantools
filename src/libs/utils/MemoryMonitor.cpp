@@ -17,9 +17,10 @@ You should have received a copy of the GNU Lesser General Public License
 along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef DISABLE_MEMORY_MONITOR
 
 #include "MemoryMonitor.h"
+
+#ifndef DISABLE_MEMORY_MONITOR
 
 #include <cstdlib>
 #include <iostream>

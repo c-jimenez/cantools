@@ -19,6 +19,7 @@ along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "CanMsgValueBase.h"
 
+#include <cstring>
 
 /** \brief Constructor */
 CanMsgValueBase::CanMsgValueBase()

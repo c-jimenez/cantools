@@ -20,7 +20,7 @@ along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 #include "UdpCanSerializer.h"
 #include "MulticastUdpSocket.h"
 
-#include <string>
+#include <cstring>
 #include <random>
 #include <chrono>
 #include <limits>
