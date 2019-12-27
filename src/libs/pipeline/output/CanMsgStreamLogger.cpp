@@ -19,8 +19,8 @@ along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "CanMsgStreamLogger.h"
 #include "CanController.h"
+#include "osal.h"
 
-#include <time.h>
 using namespace std;
 
 /** \brief Constructor */
@@ -88,7 +88,7 @@ void CanMsgStreamLogger::textOutput(const CanData& can_data)
     std::ostream& output_stream = *m_output_stream;
 
     struct tm timestamp = { 0 };
-    localtime_r(&can_data.header.timestamp_sec, &timestamp);
+    OSAL_LocalTime(can_data.header.timestamp_sec, &timestamp);
     output_stream << std::dec;
     output_stream << (timestamp.tm_year + 1900) << "/" << (timestamp.tm_mon + 1) << "/" << timestamp.tm_mday << " - ";
     output_stream << timestamp.tm_hour << ":" << timestamp.tm_min << ":" << timestamp.tm_sec << ".";
@@ -194,7 +194,7 @@ void CanMsgStreamLogger::csvOutput(const CanData& can_data)
     std::ostream& output_stream = *m_output_stream;
 
     struct tm timestamp = { 0 };
-    localtime_r(&can_data.header.timestamp_sec, &timestamp);
+    OSAL_LocalTime(can_data.header.timestamp_sec, &timestamp);
     output_stream << std::dec;
     output_stream << (timestamp.tm_year + 1900) << "/" << (timestamp.tm_mon + 1) << "/" << timestamp.tm_mday << " - ";
     output_stream << timestamp.tm_hour << ":" << timestamp.tm_min << ":" << timestamp.tm_sec << ".";
