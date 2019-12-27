@@ -55,7 +55,7 @@ DISABLED_WARNINGS =
 CFLAGS = -fPIC -Wall -fsigned-char $(OPTIMIZATION_LEVEL) $(PROJECT_CFLAGS) $(TARGET_PROJECT_DEFINES) -g
 CXXFLAGS = -fPIC -Wall -fno-check-new -fsigned-char $(OPTIMIZATION_LEVEL) $(PROJECT_CXXFLAGS) $(TARGET_PROJECT_DEFINES) -std=c++17 -g
 ASFLAGS = -Wall $(OPTIMIZATION_LEVEL) $(PROJECT_ASFLAGS) $(TARGET_PROJECT_DEFINES) -g
-LDFLAGS = -Wl,-Map=$(abspath $(patsubst %.elf, %.map, $(BIN_DIR)/$(OUTPUT_NAME))) $(PROJECT_LDFLAGS) -lrt -lpthread -ldl -lutil
+LDFLAGS = $(PROJECT_LDFLAGS) -lrt -lpthread -ldl -lutil
 ARFLAGS = -c -r $(PROJECT_ARFLAGS)
 
 # Number of times the libraries names shall be duplicated in the command line
