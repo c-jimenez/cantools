@@ -76,8 +76,8 @@ static CanAdapterController* DYN_LINK_API CAN_ADAPTER_CreateController(const cha
 {
     ParameterString param_str(parameters);
     string server = param_str.getParam("server", "127.0.0.1");
-    uint16_t port = static_cast<uint16_t>(param_str.getParam("port", 6789ull));
-    uint32_t timeout = static_cast<uint32_t>(param_str.getParam("timeout", 500ull));
+    uint16_t port = static_cast<uint16_t>(param_str.getParam("port", static_cast<uint64_t>(6789)));
+    uint32_t timeout = static_cast<uint32_t>(param_str.getParam("timeout", static_cast<uint64_t>(500)));
     
     // Instanciate controller
     CanAdapterController* controller = new CanAdapterController();

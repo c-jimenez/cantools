@@ -20,7 +20,7 @@ along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 #include "UdpCanSerializer.h"
 #include "MulticastUdpSocket.h"
 
-#include <string>
+#include <cstring>
 #include <random>
 #include <chrono>
 #include <limits>
@@ -88,10 +88,10 @@ bool UdpCanSerializer::write(const CanMsg& can_msg)
                         {
                             ret = write(can_msg.data, can_msg.size, &buffer[buffer_index], buffer_index, sizeof(buffer));
                         }
-                        if (ret)
-                        {
-                            ret = m_socket.send(buffer, buffer_index);
-                        }
+                    }
+                    if (ret)
+                    {
+                        ret = m_socket.send(buffer, buffer_index);
                     }
                 }
             }

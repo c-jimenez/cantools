@@ -75,7 +75,7 @@ static CanAdapterController* DYN_LINK_API CAN_ADAPTER_CreateController(const cha
 {
     ParameterString param_str(parameters);
     string ip = param_str.getParam("ip", "224.1.2.3");
-    uint16_t port = static_cast<uint16_t>(param_str.getParam("port", 6789ull));
+    uint16_t port = static_cast<uint16_t>(param_str.getParam("port", static_cast<uint64_t>(6789)));
     
     // Instanciate controller
     CanAdapterController* controller = new CanAdapterController();

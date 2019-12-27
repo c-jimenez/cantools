@@ -1,2 +1,2 @@
 #!/bin/sh
-python build.py -t mingw-windows -p * -c clean+ -j 4
+python build.py -t gcc-linux -p '*' -c clean+ -j 4

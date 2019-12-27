@@ -20,6 +20,7 @@ along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef MEMORYMONITOR_H
 #define MEMORYMONITOR_H
 
+#define DISABLE_MEMORY_MONITOR
 #ifndef DISABLE_MEMORY_MONITOR
 
 #include <cstdint>

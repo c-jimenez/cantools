@@ -20,10 +20,10 @@ along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 #include "DecodedCanMsgStreamLogger.h"
 #include "CanMsgDesc.h"
 #include "CanMsgSignal.h"
+#include "osal.h"
 
 #include <sstream>
 #include <algorithm>
-#include <time.h>
 using namespace std;
 
 /** \brief Constructor */
@@ -81,7 +81,7 @@ void DecodedCanMsgStreamLogger::textOutput(const CanMsg& can_msg, const CanMsgDe
 
     stringstream timestamp_str;
     struct tm timestamp = { 0 };
-    localtime_s(&timestamp, &can_msg.header.timestamp_sec);
+    OSAL_LocalTime(can_msg.header.timestamp_sec, &timestamp);
     timestamp_str << std::dec;
     timestamp_str << (timestamp.tm_year + 1900) << "/" << (timestamp.tm_mon + 1) << "/" << timestamp.tm_mday << " - ";
     timestamp_str << timestamp.tm_hour << ":" << timestamp.tm_min << ":" << timestamp.tm_sec << ".";
@@ -122,7 +122,7 @@ void DecodedCanMsgStreamLogger::csvOutput(const CanMsg& can_msg, const CanMsgDes
 
     stringstream timestamp_str;
     struct tm timestamp = { 0 };
-    localtime_s(&timestamp, &can_msg.header.timestamp_sec);
+    OSAL_LocalTime(can_msg.header.timestamp_sec, &timestamp);
     timestamp_str << std::dec;
     timestamp_str << (timestamp.tm_year + 1900) << "/" << (timestamp.tm_mon + 1) << "/" << timestamp.tm_mday << " - ";
     timestamp_str << timestamp.tm_hour << ":" << timestamp.tm_min << ":" << timestamp.tm_sec << ".";

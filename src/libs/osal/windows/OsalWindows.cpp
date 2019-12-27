@@ -20,7 +20,6 @@ along with cantools.  If not, see <http://www.gnu.org/licenses/>.
 #include "osal.h"
 
 #include <Windows.h>
-#include <time.h>
 
 
 /** \brief Indicate if OSAL init has been done */
@@ -86,6 +85,12 @@ void OSAL_GetTimestamp(int64_t* timestamp_sec, uint32_t* timestamp_nsec)
 
     *timestamp_sec = timestamp_reference + count.QuadPart / pc_frequency.QuadPart;
     *timestamp_nsec = static_cast<uint32_t>(((count.QuadPart % pc_frequency.QuadPart) * (1E9)) / pc_frequency.QuadPart);
+}
+
+/** \brief Converts a UNIX timestamp to a broken down time structure */
+void OSAL_LocalTime(const uint64_t unix_timestamp, struct tm* tm)
+{
+    localtime_s(tm, reinterpret_cast<const time_t*>(&unix_timestamp));
 }
 
 #ifdef __cplusplus

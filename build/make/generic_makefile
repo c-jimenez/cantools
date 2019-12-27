@@ -70,6 +70,7 @@ BUILD_OUTPUT_TARGET_CONDITION := $(or $(findstring yes,$(FORCE_BUILD)), $(findst
 
 # Compiler output directories and libs
 BUILD_OUTPUT_DIR := .
+DEPLOY_OUTPUT_DIR := $(ROOT_DIR)/deploy
 
 ifeq ($(BUILD_TYPE), LIB)
     PROJECT_NAME := lib$(PROJECT_NAME)
@@ -98,6 +99,11 @@ else
     CLEAN_LIBS := CLEAN_PROJECT_REQUIRED CLEAN_LIB_REQUIRED
 endif
 endif
+
+# Absolute paths
+DEPLOY_OUTPUT_DIR_ABS := $(abspath $(DEPLOY_OUTPUT_DIR))
+BIN_DIR_ABS := $(abspath $(BIN_DIR))
+OBJ_DIR_ABS := $(abspath $(OBJ_DIR))
 
 # Target specific definitions
 include $(ROOT_DIR)/build/make/targets/$(TARGET).target
@@ -205,10 +211,12 @@ usage:
 	@echo "  all+ : incremental build of the current component and all its dependencies"
 	@echo "  clean : clean the current component"
 	@echo "  clean+ : clean the current component and all its dependencies"
+	@echo "  deploy : deploy the current component in the 'deploy' directory"
+	@echo "  deploy+ : deploy the current component and all its dependencies"
 	@echo ""
 	@echo "Makefile options:"
 	@echo "  DISPLAY : activate/deactive display of full command lines. Default:no"
-	@echo "  HEADER_DEP : activate/deactive generation of header depencies files (can slow down build on old computers). Default:yes"
+	@echo "  HEADER_DEP : activate/deactive generation of header dependencies files (can slow down build on old computers). Default:yes"
 	@echo "  TARGET : target description file to use to compile the component. Default:$(DEFAULT_TARGET)"
 	@echo ""
 	@echo "Example of options usage:"
@@ -278,6 +286,9 @@ $(1).build:
 $(1).clean:
 	+$(DISP)$(MAKE) $(SILENT) -C $(ROOT_DIR)/build/$(1)/ $(SUBMAKE_PARAMS) clean
 
+$(1).deploy:
+	+$(DISP)$(MAKE) $(SILENT) -C $(ROOT_DIR)/build/$(1)/ $(SUBMAKE_PARAMS) deploy
+
 $(ROOT_DIR_ABS)/build/$(PROJECT_LIB)/lib/$(TARGET)/lib$(notdir $(PROJECT_LIB))$(COMP_LIB_EXTENSION): $(1).build
 
 endef
@@ -302,3 +313,31 @@ CLEAN_PROJECT_REQUIRED: $(foreach PROJECT_DEPENDENCY, $(PROJECT_DEPENDENCIES), $
 CLEAN_LIB_REQUIRED: $(foreach PROJECT_LIB, $(PROJECT_LIBS), $(PROJECT_LIB).clean)
 
 
+# Rules for deploying
+ifneq ($(strip $(BUILD_OUTPUT_TARGET_CONDITION)),)
+ifneq ($(BUILD_TYPE), LIB)
+deploy:
+	@echo "Deploying $(OUTPUT_NAME)..."
+	$(DISP)mkdir -p $(DEPLOY_OUTPUT_DIR)
+	$(DISP)cp $(BIN_DIR)/$(OUTPUT_NAME) $(DEPLOY_OUTPUT_DIR)
+	@echo "Deploy finished"
+
+deploy+: DEPLOY_LIB_REQUIRED DEPLOY_PROJECT_REQUIRED deploy
+else
+deploy:
+	@echo "Deploying not performed on $(OUTPUT_NAME)"
+
+deploy+: deploy
+endif
+else
+deploy:
+	@echo "Deploying not performed on $(OUTPUT_NAME)"
+
+deploy+: deploy
+endif
+
+
+
+DEPLOY_PROJECT_REQUIRED: $(foreach PROJECT_DEPENDENCY, $(PROJECT_DEPENDENCIES), $(PROJECT_DEPENDENCY).deploy)
+
+DEPLOY_LIB_REQUIRED: $(foreach PROJECT_LIB, $(PROJECT_LIBS), $(PROJECT_LIB).deploy)

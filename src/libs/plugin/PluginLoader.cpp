@@ -47,7 +47,7 @@ bool PluginLoader::load(const std::vector<std::string>& search_paths, std::vecto
 }
 
 /** \brief Load plugins from a specified path */
-bool PluginLoader::load(const std::string& search_path, std::vector<IPlugin*>& plugins, std::function<bool(IPlugin*)> filter_func)
+bool PluginLoader::load(const std::string& search_path, std::vector<IPlugin*>& plugins, const std::function<bool(IPlugin*)>& filter_func)
 {
     vector<string> search_paths;
     search_paths.push_back(search_path);
@@ -55,7 +55,7 @@ bool PluginLoader::load(const std::string& search_path, std::vector<IPlugin*>& p
 }
 
 /** \brief Load plugins from specified paths */
-bool PluginLoader::load(const std::vector<std::string>& search_paths, std::vector<IPlugin*>& plugins, std::function<bool(IPlugin*)> filter_func)
+bool PluginLoader::load(const std::vector<std::string>& search_paths, std::vector<IPlugin*>& plugins, const std::function<bool(IPlugin*)>& filter_func)
 {
     bool ret = true;
 
@@ -63,7 +63,7 @@ bool PluginLoader::load(const std::vector<std::string>& search_paths, std::vecto
     plugins.clear();
 
     // Look into all specified paths
-    for (size_t i = 0; ((i < search_paths.size()) && ret); i++)
+    for (size_t i = 0; i < search_paths.size(); i++)
     {
         // List plugin files
         vector<string> plugin_files;
@@ -71,7 +71,7 @@ bool PluginLoader::load(const std::vector<std::string>& search_paths, std::vecto
         if (ret)
         {
             // Load plugins
-            for (size_t j = 0; ((j < plugin_files.size()) && ret); j++)
+            for (size_t j = 0; j < plugin_files.size(); j++)
             {
                 // Open library
                 IPlugin* plugin = nullptr;

@@ -99,7 +99,7 @@ class PythonModule
         const std::string m_name;
         
         /** \brief Documentation */
-        const std::string& m_doc;
+        const std::string m_doc;
 
         /** \brief Indicate if it's a built-in module */
         const bool m_builtin;

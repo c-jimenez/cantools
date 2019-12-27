@@ -52,11 +52,11 @@ OPTIMIZATION_LEVEL = -O0
 DISABLED_WARNINGS = 
 
 # Toolchain flags
-CFLAGS = -Wall -fsigned-char $(OPTIMIZATION_LEVEL) $(PROJECT_CFLAGS) $(TARGET_PROJECT_DEFINES) -g
-CXXFLAGS = -Wall -fno-check-new -fsigned-char $(OPTIMIZATION_LEVEL) $(PROJECT_CXXFLAGS) $(TARGET_PROJECT_DEFINES) -std=c++17 -g
+CFLAGS = -fPIC -Wall -fsigned-char $(OPTIMIZATION_LEVEL) $(PROJECT_CFLAGS) $(TARGET_PROJECT_DEFINES) -g
+CXXFLAGS = -fPIC -Wall -fno-check-new -fsigned-char $(OPTIMIZATION_LEVEL) $(PROJECT_CXXFLAGS) $(TARGET_PROJECT_DEFINES) -std=c++17 -g
 ASFLAGS = -Wall $(OPTIMIZATION_LEVEL) $(PROJECT_ASFLAGS) $(TARGET_PROJECT_DEFINES) -g
-LDFLAGS = -Wl,-Map=$(abspath $(patsubst %.elf, %.map, $(BIN_DIR)/$(OUTPUT_NAME))) $(PROJECT_LDFLAGS) -lrt -lpthread
+LDFLAGS = $(PROJECT_LDFLAGS) -lrt -lpthread -ldl -lutil
 ARFLAGS = -c -r $(PROJECT_ARFLAGS)
 
 # Number of times the libraries names shall be duplicated in the command line
-TARGET_DUP_COUNT := 1
+TARGET_DUP_COUNT := 1 
