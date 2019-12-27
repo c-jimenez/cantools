@@ -45,6 +45,12 @@ void OSAL_GetTimestamp(int64_t* timestamp_sec, uint32_t* timestamp_nsec)
     *timestamp_nsec = static_cast<uint32_t>(tp.tv_nsec);
 }
 
+/** \brief Converts a UNIX timestamp to a broken down time structure */
+void OSAL_LocalTime(const uint64_t unix_timestamp, struct tm* tm)
+{
+    localtime_r(reinterpret_cast<const time_t*>(&unix_timestamp), tm);
+}
+
 #ifdef __cplusplus
 }
 #endif // __cplusplus
