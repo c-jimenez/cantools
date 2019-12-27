@@ -88,10 +88,10 @@ bool UdpCanSerializer::write(const CanMsg& can_msg)
                         {
                             ret = write(can_msg.data, can_msg.size, &buffer[buffer_index], buffer_index, sizeof(buffer));
                         }
-                        if (ret)
-                        {
-                            ret = m_socket.send(buffer, buffer_index);
-                        }
+                    }
+                    if (ret)
+                    {
+                        ret = m_socket.send(buffer, buffer_index);
                     }
                 }
             }

@@ -141,7 +141,10 @@ int main(int argc, const char* argv[])
                             can_msg.extended = extended;
                             can_msg.rtr = rtr;
                             can_msg.size = static_cast<uint8_t>(msg_data.size());
-                            memcpy(can_msg.data, &msg_data[0], can_msg.size);
+                            if (can_msg.size != 0)
+                            {
+                                memcpy(can_msg.data, &msg_data[0], can_msg.size);
+                            }
                             if (controller->send(can_msg))
                             {
                                 // Wait for message to be effectly sent
